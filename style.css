@@ -186,66 +186,67 @@ body, html {
       opacity: 1;
     }
   }  
-  .container{
+  .container {
     position: absolute;
     top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
   }
-  .container h1{
+  
+  .container h1 {
     padding: 0;
     margin: 0;
     color: #000;
     text-shadow: -3px 1px 2px rgba(84, 84, 84, 0.5);
     font-size: 50px;
-    color: #000000;
     font-family: "Asap", sans-serif;
+    white-space: nowrap; /* Yeni eklenen */
+    overflow: hidden;    /* Yeni eklenen */
+    text-overflow: ellipsis; /* Yeni eklenen */
   }
-  .container p{
+  
+  .container p {
     color: green;
     font-size: 18px;
     margin: 0;
     line-height: 35px;
   }
-  span:before{
-    content:'';
+  
+  span {
+    display: inline-block; /* Yeni eklenen */
+    white-space: nowrap;   /* Yeni eklenen */
+    overflow: hidden;      /* Yeni eklenen */
+  }
+  
+  span::before {
+    content: '';
+    display: inline-block; /* Yeni eklenen */
     animation: animate infinite 5s;
+    white-space: nowrap;   /* Yeni eklenen */
+    overflow: hidden;      /* Yeni eklenen */
   }
-  @keyframes animate{
-    0%{
-      content: 'Ç'
-    }
-    10%{
-      content: 'Ço'
-    }
-    20%{
-      content: 'Çok'
-    }
-    30%{
-      content: 'Çok Y'
-    }
-    40%{
-      content: 'Çok Ya'
-    }
-    50%{
-      content: 'Çok Yak'
-    }
-    60%{
-      content: 'Çok Yakı'
-    }
-    70%{
-      content: 'Çok Yakın'
-    }
-    80%{
-      content: 'Çok Yakınd'
-    }
-    90%{
-      content: 'Çok Yakında'
-    }
-    100%{
-      content: 'Çok Yakında...'
+  
+  @keyframes animate {
+    0%   { content: 'Ç'; }
+    10%  { content: 'Ço'; }
+    20%  { content: 'Çok'; }
+    30%  { content: 'Çok Y'; }
+    40%  { content: 'Çok Ya'; }
+    50%  { content: 'Çok Yak'; }
+    60%  { content: 'Çok Yakı'; }
+    70%  { content: 'Çok Yakın'; }
+    80%  { content: 'Çok Yakınd'; }
+    90%  { content: 'Çok Yakında'; }
+    100% { content: 'Çok Yakında...'; }
+  }
+  
+  /* Mobil ekranlar için font küçültme */
+  @media screen and (max-width: 600px) {
+    .container h1 {
+      font-size: 35px; /* Mobil cihazlar için font boyutunu küçült */
     }
   }
+  
   
   .load{
     background: #000000;
